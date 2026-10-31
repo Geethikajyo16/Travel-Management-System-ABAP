@@ -1,0 +1,4 @@
+@EndUserText.label: 'Travel Management Service'
+define service ZUI_ZTRAVEL {
+  expose ZR_ZTRAVEL as Travel;
+}

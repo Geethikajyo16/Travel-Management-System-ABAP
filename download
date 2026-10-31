@@ -1,0 +1,13 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+
+# Local exports and credentials
+*.p12
+*.pfx
+*.key
+.env
+.env.*

@@ -1,0 +1,12 @@
+@EndUserText.label: 'Travel Access Control'
+@MappingRole: true
+define role ZC_ZTRAVEL_AUTH {
+  grant select on ZR_ZTRAVEL
+    where AgencyID = $session.user;
+}
+
+"IMPORTANT:
+"This is an illustrative condition only. It assumes AgencyID can be compared
+"to the current user, which is usually NOT a valid business authorization
+"mapping. Replace it with your project's user-to-agency mapping, PFCG role,
+"authorization object, or another supported DCL condition.

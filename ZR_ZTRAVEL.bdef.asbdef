@@ -1,0 +1,42 @@
+managed implementation in class ZBP_R_ZTRAVEL unique;
+strict ( 2 );
+
+define behavior for ZR_ZTRAVEL alias Travel
+persistent table ztravel
+lock master
+etag master LocalLastChangedAt
+authorization master ( global )
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly )
+    TravelUUID,
+    Status,
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt,
+    LocalLastChangedAt;
+
+  determination setInitialStatus on modify { create; }
+
+  mapping for ztravel
+  {
+    TravelUUID          = travel_uuid;
+    AgencyID            = agency_id;
+    CustomerID          = customer_id;
+    BeginDate           = begin_date;
+    EndDate             = end_date;
+    BookingFee          = booking_fee;
+    TotalPrice          = total_price;
+    CurrencyCode        = currency_code;
+    Status              = status;
+    CreatedBy           = created_by;
+    CreatedAt           = created_at;
+    LastChangedBy       = last_changed_by;
+    LastChangedAt       = last_changed_at;
+    LocalLastChangedAt  = local_last_changed_at;
+  }
+}
